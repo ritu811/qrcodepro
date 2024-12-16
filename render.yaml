@@ -4,8 +4,8 @@ services:
     env: java
     plan: free
     branch: master
-    runtime: java17  # Added runtime specification
-    buildCommand: ./mvnw clean package -DskipTests
+    runtime: java17
+    buildCommand: chmod +x mvnw && ./mvnw clean package -DskipTests
     startCommand: java -jar target/qrcodegenerator-0.0.1-SNAPSHOT.jar
     envVars:
       - key: JAVA_OPTS
@@ -13,5 +13,5 @@ services:
       - key: SERVER_PORT
         value: 10000
     healthCheckPath: /
-    healthCheckTimeout: 100  # Added health check timeout
+    healthCheckTimeout: 100
     autoDeploy: false
